@@ -6,7 +6,7 @@
 
 ## 仓库说明
 
-本仓库记录了我从零开始学习 CV/DL 基础工具链的过程，包含 5 个脚本，均可在本地直接运行。
+本仓库记录了我从零开始学习 CV/DL 基础工具链的过程，包含 7 个脚本，均可在本地直接运行。
 
 ## 环境依赖
 
@@ -24,6 +24,8 @@ Python 3.9+ 推荐。
 | 03_opencv_demo.py | 读图 → 灰度 → resize → 保存 |
 | 04_pytorch_concepts.py | 手动梯度下降 + nn.Module + DataLoader |
 | 05_pytorch_mnist.py | MNIST 完整训练（3 epoch，可 GPU） |
+| 06_pytorch_fashion-mnist.py | Fashion-MNIST 数据集训练与基础模型评估 |
+| 07_pytorch_mnist_CNN.ipynb | 卷积神经网络 (CNN) 手写数字识别 (Jupyter Notebook) |
 
 ## 运行方式
 
@@ -33,6 +35,8 @@ python 02_numpy_demo.py
 python 03_opencv_demo.py # 需在同目录放一张 test.jpg
 python 04_pytorch_concepts.py
 python 05_pytorch_mnist.py # 首次运行自动下载 MNIST 数据集
+python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数据集
+# 07_pytorch_mnist_CNN.ipynb 请在 Jupyter Notebook 或 JupyterLab 中打开运行
 ```
 ## 学习状态
 
@@ -40,6 +44,8 @@ python 05_pytorch_mnist.py # 首次运行自动下载 MNIST 数据集
 - [x] NumPy 数组操作
 - [x] OpenCV 图像读取与预处理
 - [x] PyTorch 训练流程跑通
+- [x] Fashion-MNIST 基础训练
+- [x] CNN 卷积神经网络入门
 - [ ] 后续：进组后继续深入数据处理与实验跑通
 
 ## 联系方式
