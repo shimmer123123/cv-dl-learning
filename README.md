@@ -50,4 +50,4 @@ python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数
 
 ## 联系方式
 
-请联系：Email: 202530550112@mail.scut.edu.cn
+邮箱：202530550112@mail.scut.edu.cn
