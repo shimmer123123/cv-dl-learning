@@ -2,7 +2,7 @@
 
 >华南理工大学软件学院 2025 级本科生
 >
->记录从 Python/NumPy/OpenCV/PyTorch 到简单视觉模型训练、再到目标检测推理工具链的学习过程。
+>记录从 Python/NumPy/OpenCV/PyTorch 到简单视觉模型训练、再到目标检测推理工具链的学习过程，以及Git/Linux/tmux/wandb等实验工程工具的简短熟悉。
 
 ## 仓库说明
 
@@ -47,17 +47,18 @@ python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数
 
 | 项目 | 配置 |
 | --- | --- |
-| GPU | NVIDIA GeForce RTX 5060 (8GB), Windows |
+| GPU | NVIDIA GeForce RTX 5060 (8GB), Windows + WSL2 |
 | CUDA Driver | 13.1 |
 | PyTorch | CUDA enabled (cu129) |
-| 环境管理 | Anaconda, Python 3.10, 独立环境 `yolo` |
+| 环境管理 | WSL2 Ubuntu, python3-venv (`~/venv`) |
 
 ### 流程记录
 
 1. 创建 conda 环境并安装 PyTorch CUDA 版  
 2. 克隆 YOLOv5 仓库，手动下载权重 `yolov5s.pt`  
 3. 安装依赖并解决网络/路径问题  
-4. 跑通图片推理 → 视频检测 → 摄像头实时检测  
+4. 跑通图片推理 → 视频检测 → 摄像头实时检测
+5. 对比 `--conf 0.25/0.5` 与 `--img 320/640` 的检测框数与推理速度差异
 
 ### 推理命令
 
@@ -70,11 +71,16 @@ python detect.py --source videos/test.mp4 --weights yolov5s.pt
 python detect.py --source 0 --weights yolov5s.pt
 ```
 
+### 参数对比
+
+| 参数 | 设置 | 观察结果 |
+| --- | --- | --- |
+| `--conf` | 0.25 / 0.5 | 阈值越低框越多，越高框越严 |
+| `--img` | 320 / 640 | 尺寸越小越快，小目标可能漏检 |
+
 ### 检测结果示例
 
 ![YOLOv5 bus detection](bus.jpg)
-
-> 后续可进一步把前面数据处理 / 模型训练的经验接上：对比 `--conf 0.25` 与 `--conf 0.5` 的检测框数量差异，准备标注数据、训练自定义检测器，或回到 PyTorch 侧理解 YOLO 的模型结构与训练流程。
 
 ## 学习状态
 
@@ -84,9 +90,11 @@ python detect.py --source 0 --weights yolov5s.pt
 - [x] PyTorch 训练流程跑通
 - [x] Fashion-MNIST 基础训练
 - [x] CNN 卷积神经网络入门
-- [x] 本机 GPU / CUDA 与 conda 环境配置
+- [x] 本机 GPU / CUDA 与 WSL2 + venv 环境配置
 - [x] 使用 YOLOv5 跑通目标检测推理（图片 / 视频 / 摄像头）
-- [ ] 后续：数据标注、自定义检测训练、模型评估与实验记录
+- [x] YOLOv5 参数对比实验
+- [x] wandb 实验记录 / tmux 会话管理 / Git / Linux 基本操作
+- [ ] 后续：数据标注、自定义检测训练、模型评估与实验记录等
 
 ## 联系方式
 
