@@ -1,12 +1,12 @@
-# CV/DL Learning Notes
+# Learning Notes
 
 >华南理工大学软件学院 2025 级本科生
 >
->自学计算机视觉与深度学习基础（Python → NumPy → OpenCV → PyTorch）
+>记录从 Python/NumPy/OpenCV/PyTorch 到简单视觉模型训练、再到目标检测推理工具链的学习过程。
 
 ## 仓库说明
 
-本仓库记录了从零开始学习 CV/DL 基础工具链的过程，包含 7 个脚本，环境配置正确后即可运行。
+本仓库记录从零开始学习计算机视觉与深度学习基础工具链的过程：Python 与数值计算基础、图像读取与预处理、PyTorch 模型训练流程，以及基于已有 YOLOv5 模型做目标检测推理的体验。包含基础脚本与一次真实推理流程记录，环境配置正确后即可运行。
 
 ## 环境依赖
 
@@ -15,7 +15,7 @@ pip install numpy opencv-python torch torchvision matplotlib -i https://pypi.tun
 ```
 Python 3.9+ 推荐。
 
-## 脚本说明
+## 基础学习脚本
 
 | 文件 | 内容 |
 |---|---|
@@ -38,6 +38,44 @@ python 05_pytorch_mnist.py # 首次运行自动下载 MNIST 数据集
 python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数据集
 # 07_pytorch_mnist_CNN.ipynb 请在 Jupyter Notebook 或 JupyterLab 中打开运行
 ```
+
+## 应用延伸：基于 YOLOv5 的目标检测推理
+
+前面的 OpenCV 负责图像/视频帧的读取与预处理，PyTorch / CNN 部分建立了对模型、卷积特征和推理流程的理解。这里使用 Ultralytics YOLOv5 作为现成检测模型，验证本机 GPU / CUDA 环境，并跑通图片、视频和摄像头检测流程。暂时没有训练自定义模型，主要是熟悉真实目标检测工具链和输入输出组织方式。
+
+### 环境配置
+
+| 项目 | 配置 |
+| --- | --- |
+| GPU | NVIDIA GeForce RTX 5060 (8GB), Windows |
+| CUDA Driver | 13.1 |
+| PyTorch | CUDA enabled (cu129) |
+| 环境管理 | Anaconda, Python 3.10, 独立环境 `yolo` |
+
+### 流程记录
+
+1. 创建 conda 环境并安装 PyTorch CUDA 版  
+2. 克隆 YOLOv5 仓库，手动下载权重 `yolov5s.pt`  
+3. 安装依赖并解决网络/路径问题  
+4. 跑通图片推理 → 视频检测 → 摄像头实时检测  
+
+### 推理命令
+
+```bash
+图片检测：
+python detect.py --source data/images/bus.jpg --weights yolov5s.pt
+视频检测：
+python detect.py --source videos/test.mp4 --weights yolov5s.pt
+摄像头实时检测：
+python detect.py --source 0 --weights yolov5s.pt
+```
+
+### 检测结果示例
+
+![YOLOv5 bus detection](docs/bus_result.jpg)
+
+> 后续可进一步把前面数据处理 / 模型训练的经验接上：对比 `--conf 0.25` 与 `--conf 0.5` 的检测框数量差异，准备标注数据、训练自定义检测器，或回到 PyTorch 侧理解 YOLO 的模型结构与训练流程。
+
 ## 学习状态
 
 - [x] Python 基础语法
@@ -46,7 +84,9 @@ python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数
 - [x] PyTorch 训练流程跑通
 - [x] Fashion-MNIST 基础训练
 - [x] CNN 卷积神经网络入门
-- [ ] 后续：进组后继续深入数据处理与实验跑通
+- [x] 本机 GPU / CUDA 与 conda 环境配置
+- [x] 使用 YOLOv5 跑通目标检测推理（图片 / 视频 / 摄像头）
+- [ ] 后续：数据标注、自定义检测训练、模型评估与实验记录
 
 ## 联系方式
 
