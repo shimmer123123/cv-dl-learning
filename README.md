@@ -72,7 +72,7 @@ python detect.py --source 0 --weights yolov5s.pt
 
 ### 检测结果示例
 
-![YOLOv5 bus detection](docs/bus_result.jpg)
+![YOLOv5 bus detection](bus.jpg)
 
 > 后续可进一步把前面数据处理 / 模型训练的经验接上：对比 `--conf 0.25` 与 `--conf 0.5` 的检测框数量差异，准备标注数据、训练自定义检测器，或回到 PyTorch 侧理解 YOLO 的模型结构与训练流程。
 
