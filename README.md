@@ -23,7 +23,7 @@ Python 3.9+ 推荐。
 | 02_numpy_demo.py | 数组创建、reshape、切片、运算、矩阵乘法、统计 |
 | 03_opencv_demo.py | 图像读取、灰度化、resize、ROI 裁剪与保存 |
 | 04_pytorch_concepts.py | Tensor 自动求导 + nn.Module 模型构建 + DataLoader 数据加载 |
-| 05_pytorch_mnist.py | MNIST 手写数字分类完整训练（3 Epoch，支持 GPU） |
+| 05_pytorch_mnist.py | MNIST 手写数字分类完整训练（3 Epoch，支持 GPU，测试集准确率 98.55%） |
 | 06_pytorch_fashion-mnist.py | Fashion-MNIST 数据集训练与基础模型评估 |
 | 07_pytorch_mnist_CNN.ipynb | 基于 CNN 的手写数字识别（Jupyter Notebook） |
 
@@ -34,7 +34,7 @@ python 01_python_basics.py
 python 02_numpy_demo.py
 python 03_opencv_demo.py # 需在同目录放一张 test.jpg
 python 04_pytorch_concepts.py
-python 05_pytorch_mnist.py # 首次运行自动下载 MNIST 数据集
+python 05_pytorch_mnist.py # 首次运行自动下载 MNIST 数据集，3 Epoch后测试集准确率约98%
 python 06_pytorch_fashion-mnist.py  # 首次运行自动下载 Fashion-MNIST 数据集
 # 07_pytorch_mnist_CNN.ipynb 请在 Jupyter Notebook 或 JupyterLab 中打开运行
 ```
