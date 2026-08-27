@@ -93,7 +93,7 @@ python detect.py --source 0 --weights yolov5s.pt
 - [x] 本机 GPU / CUDA 与 WSL2 + venv 环境配置
 - [x] 使用 YOLOv5 跑通目标检测推理（图片 / 视频 / 摄像头）
 - [x] YOLOv5 参数对比实验
-- [x] wandb 实验记录 / tmux 会话管理 / Git / Linux 基本操作
+- [x] wandb / tmux / Git / Linux 简单练习
 - [ ] 后续：数据标注、自定义检测训练、模型评估与实验记录等
 
 ## 联系方式
